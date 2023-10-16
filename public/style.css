@@ -1,23 +1,23 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 30px;
     padding: 0;
 }
 
 .page-section {
     padding: 20px;
     margin: 20px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #e30f0f;
 }
 
 #section1 {
-    background-color: #e6f7ff;
+    background-color: #0779ad;
 }
 
 #section2 {
-    background-color: #ffe6e6;
+    background-color: #eaff5f;
 }
 
 #section3 {
-    background-color: #e6ffe6;
+    background-color: #00bd00;
 }
