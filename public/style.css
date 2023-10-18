@@ -1,4 +1,10 @@
-body {
+body{
+    background-image: url('sarahbrown.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 1.0;
+
     font-family: Arial, sans-serif;
     margin: 30px;
     padding: 0;
@@ -7,7 +13,7 @@ body {
 .page-section {
     padding: 20px;
     margin: 20px 0;
-    border: 1px solid #e30f0f;
+    border: 10px solid #e30f0f;
 }
 
 #section1 {

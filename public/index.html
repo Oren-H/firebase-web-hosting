@@ -1,30 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="scripts/main.js"></script>
+    <title>Microeconomics Trivia</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <section id="section1" class="page-section">
-        <h1>Welcome to Section 1</h1>
-        <p>Content for section 1 goes here.</p>
-    </section>
-    
-    <section id="section2" class="page-section">
-        <h1>Welcome to Section 2</h1>
-        <p>Content for section 2 goes here.</p>
-    </section>
-    
-    <section id="section3" class="page-section">
-        <h1>Welcome to Section 3</h1>
-        <p>Content for section 3 goes here.</p>
-    </section>
+    <h1>Microeconomics Trivia Questions</h1>
 
-    <section id="counter" class="page-section">
-        <h1>Counter</h1>
-        <p>Count: <span id="count">0</span></p>
+    <ol>
+        <li>
+            <p>What is the law of demand in microeconomics?</p>
+            <ul>
+                <li><label><input type="radio" name="q1" value="a">a) As the price of a good or service increases, the quantity demanded decreases</label></li>
+                <li><label><input type="radio" name="q1" value="b">b) As the price of a good or service increases, the quantity demanded increases</label></li>
+                <li><label><input type="radio" name="q1" value="c">c) As the price of a good or service remains constant, the quantity demanded increases</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>What is the term used to describe a situation where a single firm dominates a market and sets the price?</p>
+            <ul>
+                <li><label><input type="radio" name="q2" value="a">a) Monopoly</label></li>
+                <li><label><input type="radio" name="q2" value="b">b) Oligopoly</label></li>
+                <li><label><input type="radio" name="q2" value="c">c) Perfect Competition</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>What is the concept in microeconomics that refers to the difference between the maximum price a consumer is willing to pay for a good or service and the actual price they pay?</p>
+            <ul>
+                <li><label><input type="radio" name="q3" value="a">a) Marginal Cost</label></li>
+                <li><label><input type="radio" name="q3" value="b">b) Consumer Surplus</label></li>
+                <li><label><input type="radio" name="q3" value="c">c) Producer Surplus</label></li>
+            </ul>
+        </li>
+        
+        <li>
+            <p>What term describes a situation where the market fails to allocate resources efficiently, leading to overproduction or underproduction of goods or services?</p>
+            <ul>
+                <li><label><input type="radio" name="q4" value="a">a) Market Equilibrium</label></li>
+                <li><label><input type="radio" name="q4" value="b">b) Market Failure</label></li>
+                <li><label><input type="radio" name="q4" value="c">c) Perfect Competition</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>Which of the following is an example of a negative externality in microeconomics?</p>
+            <ul>
+                <li><label><input type="radio" name="q5" value="a">a) A well-maintained public park</label></li>
+                <li><label><input type="radio" name="q5" value="b">b) Pollution from a factory affecting nearby residents</label></li>
+                <li><label><input type="radio" name="q5" value="c">c) A company offering a sale on its products</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>What economic concept occurs when a producer of a good or service benefits more from a transaction than the consumer, leading to potential market inefficiency?</p>
+            <ul>
+                <li><label><input type="radio" name="q6" value="a">a) Economies of Scale</label></li>
+                <li><label><input type="radio" name="q6" value="b">b) Information Asymmetry</label></li>
+                <li><label><input type="radio" name="q6" value="c">c) Perfect Competition</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>What is the term used to describe a situation in which there are a large number of buyers and sellers in a market, and no single entity has significant market power?</p>
+            <ul>
+                <li><label><input type="radio" name="q7" value="a">a) Monopoly</label></li>
+                <li><label><input type="radio" name="q7" value="b">b) Oligopoly</label></li>
+                <li><label><input type="radio" name="q7" value="c">c) Perfect Competition</label></li>
+            </ul>
+        </li>
+
+        <li>
+            <p>What concept in microeconomics refers to the cost incurred by a third party in a transaction, often leading to market inefficiencies?</p>
+            <ul>
+                <li><label><input type="radio" name="q8" value="a">a) Producer Surplus</label></li>
+                <li><label><input type="radio" name="q8" value="b">b) Externalities</label></li>
+                <li><label><input type="radio" name="q8" value="c">c) Market Equilibrium</label></li>
+            </ul>
+        </li>
+    </ol>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            let correctAnswers = 0;
+
+            // Check the answers and update the correctAnswers count
+            const answer1 = document.querySelector('input[name="q1"]:checked');
+            const answer2 = document.querySelector('input[name="q2"]:checked');
+            const answer3 = document.querySelector('input[name="q3"]:checked');
+            const answer4 = document.querySelector('input[name="q4"]:checked');
+            const answer5 = document.querySelector('input[name="q5"]:checked');
+            const answer6 = document.querySelector('input[name="q6"]:checked');
+            const answer7 = document.querySelector('input[name="q7"]:checked');
+            const answer8 = document.querySelector('input[name="q8"]:checked');
+
+            if (answer1 && answer1.value === 'a') {
+                correctAnswers++;
+            }
+            if (answer2 && answer2.value === 'a') {
+                correctAnswers++;
+            }
+            if (answer3 && answer3.value === 'b') {
+                correctAnswers++;
+            }
+            if (answer4 && answer4.value === 'b') {
+                correctAnswers++;
+            }
+            if (answer5 && answer5.value === 'b') {
+                correctAnswers++;
+            }
+            if (answer6 && answer6.value === 'b') {
+                correctAnswers++;
+            }
+            if (answer7 && answer7.value === 'c') {
+                correctAnswers++;
+            }
+            if (answer8 && answer8.value === 'b') {
+                correctAnswers++;
+            }
+
+            // Display the result
+            const result = document.getElementById('result');
+            result.innerHTML = `You got ${correctAnswers} out of 8 questions correct!`;
+        }
+    </script>
 </body>
 </html>
