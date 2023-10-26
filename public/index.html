@@ -3,9 +3,14 @@
 <head>
     <title>Microeconomics Trivia</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <div id="result"></div>
+    <script defer src="scripts/main.js" ></script>
 </head>
 <body>
     <h1>Microeconomics Trivia Questions</h1>
+
+    <button onclick="turnOffImage()">Toggle Background Image</button>
+    <button onclick="checkAnswers()">Check Answers</button>
 
     <ol>
         <li>
@@ -81,53 +86,6 @@
         </li>
     </ol>
 
-    <button onclick="checkAnswers()">Check Answers</button>
-
-    <div id="result"></div>
-
-    <script>
-        function checkAnswers() {
-            let correctAnswers = 0;
-
-            // Check the answers and update the correctAnswers count
-            const answer1 = document.querySelector('input[name="q1"]:checked');
-            const answer2 = document.querySelector('input[name="q2"]:checked');
-            const answer3 = document.querySelector('input[name="q3"]:checked');
-            const answer4 = document.querySelector('input[name="q4"]:checked');
-            const answer5 = document.querySelector('input[name="q5"]:checked');
-            const answer6 = document.querySelector('input[name="q6"]:checked');
-            const answer7 = document.querySelector('input[name="q7"]:checked');
-            const answer8 = document.querySelector('input[name="q8"]:checked');
-
-            if (answer1 && answer1.value === 'a') {
-                correctAnswers++;
-            }
-            if (answer2 && answer2.value === 'a') {
-                correctAnswers++;
-            }
-            if (answer3 && answer3.value === 'b') {
-                correctAnswers++;
-            }
-            if (answer4 && answer4.value === 'b') {
-                correctAnswers++;
-            }
-            if (answer5 && answer5.value === 'b') {
-                correctAnswers++;
-            }
-            if (answer6 && answer6.value === 'b') {
-                correctAnswers++;
-            }
-            if (answer7 && answer7.value === 'c') {
-                correctAnswers++;
-            }
-            if (answer8 && answer8.value === 'b') {
-                correctAnswers++;
-            }
-
-            // Display the result
-            const result = document.getElementById('result');
-            result.innerHTML = `You got ${correctAnswers} out of 8 questions correct!`;
-        }
-    </script>
+    
 </body>
 </html>
