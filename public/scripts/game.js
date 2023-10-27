@@ -1,7 +1,9 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const snakeImage = new Image();
+snakeImage.src = "theiss.png";
 
-const gridSize = 20;
+const gridSize = 30;
 const gridWidth = canvas.width / gridSize;
 const gridHeight = canvas.height / gridSize;
 
@@ -20,8 +22,7 @@ function getRandomCoordinate(max) {
 
 function drawSnake() {
     snake.forEach(segment => {
-        ctx.fillStyle = "#2E8B57";
-        ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+        ctx.drawImage(snakeImage, segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
     });
 }
 
