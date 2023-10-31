@@ -1,8 +1,3 @@
-import firebase from "/firebase/compat/app";
-// Required for side-effects
-import '/firebase/compat/firestore';
-import { initializeApp } from "/firebase/app";
-import { getFirestore } from "/firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyA1AxN0tc3HBEuh8RXmRcxfQPBm3EELw_U",
@@ -13,10 +8,8 @@ const firebaseConfig = {
     appId: "1:584035320778:web:6f03fd6c76a35bd7d5c533"
 };
 
-firebase.initializeApp(firebaseConfig);
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = firebase.initializeApp(firebaseConfig);
+this.db = app.firestore(app);
 
 const initialsForm = document.getElementById("initialsForm");
 const initialsInput = document.getElementById("initials");
