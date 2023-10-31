@@ -14,10 +14,32 @@
         canvas {
             border: 1px solid #000;
         }
+
+        #initialsForm {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
     <canvas id="gameCanvas" width="1000" height="600"></canvas>
-    <script src="scripts/game.js"></script>
+
+    <form id="initialsForm">
+        <label for="initials">Enter your initials (3 letters):</label>
+        <input type="text" id="initials" maxlength="3" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+
+    <script type="module" src="scripts/game.js"></script>
 </body>
 </html>

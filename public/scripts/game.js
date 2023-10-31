@@ -1,5 +1,29 @@
+import firebase from "/firebase/compat/app";
+// Required for side-effects
+import '/firebase/compat/firestore';
+import { initializeApp } from "/firebase/app";
+import { getFirestore } from "/firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA1AxN0tc3HBEuh8RXmRcxfQPBm3EELw_U",
+    authDomain: "oren-h.firebaseapp.com",
+    projectId: "oren-h",
+    storageBucket: "oren-h.appspot.com",
+    messagingSenderId: "584035320778",
+    appId: "1:584035320778:web:6f03fd6c76a35bd7d5c533"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const initialsForm = document.getElementById("initialsForm");
+const initialsInput = document.getElementById("initials");
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+
 const snakeImage = new Image();
 snakeImage.src = "theiss.png";
 
@@ -15,6 +39,37 @@ let dx = 1;
 let dy = 0;
 let changingDirection = false;
 let gameInterval;
+let gameEnded = false;
+
+
+initialsForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const initials = initialsInput.value.trim().toUpperCase();
+
+    if (initials.length !== 3) {
+        alert("Please enter 3 letters for your initials.");
+        return;
+    }
+
+    if (gameEnded) { // Check if the game has ended before storing initials
+        // Store the player's initials and score in Firestore
+        db.collection("scores").add({
+            initials: initials,
+            score: score,
+        })
+        .then(() => {
+            alert("Initials and score stored successfully.");
+            location.reload(); // Reload the page to play again
+        })
+        .catch((error) => {
+            console.error("Error storing initials and score:", error);
+            alert("An error occurred. Please try again.");
+        });
+    } else {
+        alert("The game is still in progress. You can submit your initials after the game ends.");
+    }
+});
 
 function getRandomCoordinate(max) {
     return Math.floor(Math.random() * max);
@@ -58,6 +113,7 @@ function checkCollision() {
         snake[0].y < 0 ||
         snake[0].y >= gridHeight
     ) {
+        gameEnded = true;
         clearInterval(gameInterval);
         ctx.font = "30px Arial";
         ctx.fillStyle = "#FF0000";
@@ -66,6 +122,7 @@ function checkCollision() {
 
     for (let i = 1; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            gameEnded = true;
             clearInterval(gameInterval);
             ctx.font = "30px Arial";
             ctx.fillStyle = "#FF0000";
